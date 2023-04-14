@@ -1,0 +1,5 @@
+com\snap\svixpocserver\service\impl\MerchantServiceImpl.class
+com\snap\svixpocserver\controller\MerchantController.class
+com\snap\svixpocserver\SvixPocServerApplication.class
+com\snap\svixpocserver\entity\Merchant.class
+com\snap\svixpocserver\service\MerchantService.class
