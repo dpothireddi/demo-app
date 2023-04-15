@@ -25,8 +25,8 @@ public class EmailServiceImpl implements EmailService {
       // Setting up necessary details
       mailMessage.setFrom( "slack.alerts.rhinos@gmail.com" );
       mailMessage.setTo( to );
-      mailMessage.setText( sub );
-      mailMessage.setSubject( msg );
+      mailMessage.setSubject( sub );
+      mailMessage.setText( msg );
 
       // Sending the mail
       javaMailSender.send( mailMessage );
