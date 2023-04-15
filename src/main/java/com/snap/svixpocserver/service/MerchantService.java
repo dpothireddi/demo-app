@@ -8,4 +8,6 @@ public interface MerchantService {
   List<Merchant> getAll();
 
   void createMerchant( Merchant merchant );
+
+  void deleteAll();
 }
