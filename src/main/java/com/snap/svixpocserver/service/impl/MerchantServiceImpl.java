@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 @Service
 public class MerchantServiceImpl implements MerchantService {
@@ -26,13 +27,28 @@ public class MerchantServiceImpl implements MerchantService {
 
   @Override
   public void createMerchant( final Merchant merchant ) {
+    merchant.setId( this.availableMerchants.size() + 1 );
     this.availableMerchants.add( merchant );
-    this.emailService.send( "dpothireddi@snapfinancebpo.com", "New merchant onboarded", merchant.toString() );
+    this.emailService.send( "dpothireddi@snapfinancebpo.com", "SVIX CALL: New Merchant Onboarded", merchant.toString() );
   }
 
   @Override
   public void deleteAll() {
     this.availableMerchants.clear();
+  }
+
+  @Override
+  public void approveMerchant( final int id ) {
+    int index = IntStream.range( 0, this.availableMerchants.size() )
+            .filter( i -> this.availableMerchants.get( i ).getId() == id )
+            .findFirst()
+            .orElse( -1 );
+    if ( index > -1 ) {
+      Merchant merchant = this.availableMerchants.get( index );
+      merchant.setApproved( true );
+      this.availableMerchants.set( index, merchant );
+      this.emailService.send( "dpothireddi@snapfinancebpo.com", "SVIX CALL: Merchant Approved", merchant.toString() );
+    }
   }
 
 }

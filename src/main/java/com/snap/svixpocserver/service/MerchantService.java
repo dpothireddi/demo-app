@@ -10,4 +10,6 @@ public interface MerchantService {
   void createMerchant( Merchant merchant );
 
   void deleteAll();
+
+  void approveMerchant( int id );
 }

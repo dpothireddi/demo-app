@@ -46,4 +46,11 @@ public class MerchantController {
     return new ResponseEntity<>( HttpStatus.OK );
   }
 
+  @PostMapping( value = "/merchants/approve", consumes = MediaType.APPLICATION_JSON_VALUE,
+          produces = MediaType.APPLICATION_JSON_VALUE )
+  public ResponseEntity<HttpStatus> approve( @RequestBody Merchant merchant ) {
+    this.merchantService.approveMerchant( merchant.getId() );
+    return new ResponseEntity<>( HttpStatus.OK );
+  }
+
 }
