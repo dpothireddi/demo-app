@@ -29,7 +29,7 @@ public class MerchantServiceImpl implements MerchantService {
   public void createMerchant( final Merchant merchant ) {
     merchant.setId( this.availableMerchants.size() + 1 );
     this.availableMerchants.add( merchant );
-    this.emailService.send( "dpothireddi@snapfinancebpo.com", "SVIX CALL: New Merchant Onboarded", merchant.toString() );
+    this.emailService.send( "snagare@snapfinancebpo.com", "SVIX CALL: New Merchant Onboarded", merchant.toString() );
   }
 
   @Override
