@@ -47,7 +47,7 @@ public class MerchantServiceImpl implements MerchantService {
       Merchant merchant = this.availableMerchants.get( index );
       merchant.setApproved( true );
       this.availableMerchants.set( index, merchant );
-      this.emailService.send( "dpothireddi@snapfinancebpo.com", "SVIX CALL: Merchant Approved", merchant.toString() );
+      this.emailService.send( "snagare@snapfinancebpo.com", "SVIX CALL: Merchant Approved", merchant.toString() );
     }
   }
 
